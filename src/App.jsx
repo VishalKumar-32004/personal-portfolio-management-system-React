@@ -1,4 +1,5 @@
-import { useState } from 'react'
+
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Login from './Login.jsx'
 import Signup from './Signup.jsx'
@@ -58,6 +59,31 @@ const certificates = [
 function App() {
   const location = useLocation()
 
+  // GLOBAL DARK / LIGHT THEME
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('theme') || 'light'
+  )
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(current => current === 'light' ? 'dark' : 'light')
+  }
+
+  const ThemeButton = () => (
+    <button
+      className="theme-toggle"
+      onClick={toggleTheme}
+      type="button"
+      aria-label="Change color theme"
+    >
+      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+    </button>
+  )
+
   const [projects] = useState(() =>
     JSON.parse(localStorage.getItem('projects') || 'null') || initialProjects
   )
@@ -103,19 +129,38 @@ function App() {
     return matchesFilter && matchesSearch
   })
 
+  // LOGIN PAGE
   if (location.pathname === '/login') {
-    return <Login />
+    return (
+      <>
+        <ThemeButton />
+        <Login />
+      </>
+    )
   }
 
+  // SIGNUP PAGE
   if (location.pathname === '/signup') {
-    return <Signup />
+    return (
+      <>
+        <ThemeButton />
+        <Signup />
+      </>
+    )
   }
+
+  // ADMIN AND USER DASHBOARD
   if (
-  location.pathname === '/admin-dashboard' ||
-  location.pathname === '/user-dashboard'
-) {
-  return <Dashboard />
-}
+    location.pathname === '/admin-dashboard' ||
+    location.pathname === '/user-dashboard'
+  ) {
+    return (
+      <>
+        <ThemeButton />
+        <Dashboard />
+      </>
+    )
+  }
 
   return (
     <>
@@ -139,6 +184,7 @@ function App() {
           <a href="#blog" onClick={() => setMenuOpen(false)}>Blog</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           <a className="login" href="/login">Login</a>
+          <ThemeButton />
         </nav>
       </header>
 
@@ -226,9 +272,7 @@ function App() {
             <div className="skill-groups">
               {skills.map((skill, index) => (
                 <article className="skill-card" key={skill[0]}>
-                  <div className="skill-number">
-                    0{index + 1}
-                  </div>
+                  <div className="skill-number">0{index + 1}</div>
 
                   <div className="skill-card-head">
                     <div>
