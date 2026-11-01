@@ -1,0 +1,339 @@
+/* Dashboard improvements */
+.dash {
+  display: flex;
+  min-height: 100vh;
+  background: #090d14;
+  color: #f4f6fb;
+}
+
+.dash aside {
+  width: 250px;
+  min-width: 250px;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  background: #101620;
+  border-right: 1px solid rgba(148,163,184,.2);
+}
+
+.dash aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.dash aside nav button,
+.dashboard-logout {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #aebbd0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dash aside nav button:hover,
+.dash aside nav button.active {
+  background: rgba(139,92,246,.18);
+  color: #c4b5fd;
+}
+
+.dash aside .dashboard-logout {
+  margin-top: auto;
+  border: 1px solid rgba(148,163,184,.25);
+  text-align: center;
+}
+
+.dashmain {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+.dashhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dashhead h1 {
+  margin: 0 0 8px;
+}
+
+.dashhead p {
+  color: #94a3b8;
+}
+
+.dashhead > span {
+  padding: 9px 16px;
+  border-radius: 20px;
+  background: rgba(139,92,246,.18);
+  color: #c4b5fd;
+}
+
+.statgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.statgrid .panel {
+  min-width: 0;
+  text-align: center;
+}
+
+.statgrid .panel h3 {
+  font-size: 15px;
+  color: #aebbd0;
+}
+
+.statgrid .panel h2 {
+  font-size: 28px;
+  overflow-wrap: anywhere;
+}
+
+.dash .panel {
+  padding: 24px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 16px;
+  background: #101620;
+}
+
+.dashboard-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin: 20px 0;
+}
+
+.dashboard-form input,
+.dashboard-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #334155;
+  border-radius: 9px;
+  background: #090d14;
+  color: #f4f6fb;
+  font: inherit;
+}
+
+.dashboard-form label {
+  display: grid;
+  gap: 8px;
+  color: #cbd5e1;
+}
+
+.dashboard-form button,
+.dash .item button:not(.unused) {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #7c3aed;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.dash .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(148,163,184,.15);
+}
+
+.dash .item h3 {
+  margin: 0 0 7px;
+}
+
+.dash .item p,
+.dash .item small {
+  color: #aebbd0;
+}
+
+.dash .item .danger-btn {
+  flex-shrink: 0;
+  background: #dc3545;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+
+.dash .panel a {
+  color: #a78bfa;
+}
+
+@media (max-width: 750px) {
+  .dash {
+    flex-direction: column;
+  }
+
+  .dash aside {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dash aside nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dash aside .dashboard-logout {
+    margin-top: 18px;
+  }
+
+  .dashmain {
+    padding: 20px 14px;
+  }
+
+  .dashboard-form {
+    grid-template-columns: 1fr;
+  }
+
+  .dashhead {
+    align-items: flex-start;
+  }
+}
+/* Compact and professional dashboard typography */
+
+.dashmain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 38px;
+}
+
+.dashhead h1 {
+  font-size: 32px !important;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.dashhead p {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.dashhead > span {
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+.dash aside h2 {
+  font-size: 23px;
+}
+
+.dash aside p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.dash aside nav button {
+  font-size: 14px;
+  padding: 11px 13px;
+}
+
+.dash .panel {
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.dash .panel h2 {
+  font-size: 23px !important;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.dash .panel h3 {
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.dash .panel p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.statgrid .panel {
+  min-height: 125px;
+  padding: 20px 14px;
+}
+
+.statgrid .panel h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.statgrid .panel h2 {
+  font-size: 27px !important;
+  margin: 0;
+}
+
+.dashboard-form {
+  gap: 12px;
+}
+
+.dashboard-form input,
+.dashboard-form select {
+  font-size: 14px;
+  padding: 12px;
+}
+
+.dashboard-form button {
+  font-size: 14px;
+  padding: 12px 18px;
+}
+
+.dash .item {
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 11px;
+}
+
+.dash .item h3 {
+  font-size: 16px;
+}
+
+.dash .item p,
+.dash .item small {
+  font-size: 13px;
+}
+
+.dash .item .danger-btn {
+  font-size: 13px;
+  padding: 9px 13px;
+}
+
+.dash .panel a {
+  font-size: 13px;
+}
+
+@media (max-width: 750px) {
+  .dashmain {
+    padding: 20px 14px;
+  }
+
+  .dashhead h1 {
+    font-size: 24px !important;
+  }
+
+  .dash .panel h2 {
+    font-size: 20px !important;
+  }
+
+  .statgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
